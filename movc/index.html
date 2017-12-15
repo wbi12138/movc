@@ -1,42 +1,158 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title></title>
-    <script src="js/mui.min.js"></script>
-    <link href="css/mui.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="css/icons-extra.css" />
-    <script type="text/javascript" charset="utf-8">
-      	mui.init();
-    </script>
-</head>
-<body>
-	<header class="mui-bar mui-bar-nav">
-	    <a class="mui-icon mui-icon-bars mui-pull-left"></a>
-	    <h1 class="mui-title">MOVC</h1>
-	    <a class="mui-icon mui-icon-search mui-pull-right"></a>
-	</header>
-	<div class="mui-content">
-	    
-	</div>
-	<nav class="mui-bar mui-bar-tab">
-	    <a class="mui-tab-item mui-active">
-	        <span class="mui-icon mui-icon-home"></span>
-	        <span class="mui-tab-label">首页</span>
-	    </a>
-	    <a class="mui-tab-item">
-	        <span class="mui-icon mui-icon-extra mui-icon-extra-class"></span>
-	        <span class="mui-tab-label">分类</span>
-	    </a>
-	    <a class="mui-tab-item">
-	        <span class="mui-icon mui-icon-paperplane"></span>
-	        <span class="mui-tab-label">发现</span>
-	    </a>
-	    <a class="mui-tab-item">
-	        <span class="mui-icon mui-icon-person"></span>
-	        <span class="mui-tab-label">我的</span>
-	    </a>
-	</nav>
-</body>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/icons-extra.css" />
+		<style>
+			/*html,
+			body {
+				background-color: #efeff4;
+			}
+			
+			p {
+				text-indent: 22px;
+			}
+			/*span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px;
+			}
+			
+			.mui-off-canvas-left {
+				color: #fff;
+			}
+			
+			.title {
+				margin: 35px 15px 10px;
+			}
+			
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+			
+			input {
+				color: #000;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" id="home">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" id="classify">
+				<span class="mui-icon mui-icon-extra mui-icon-extra-class"></span>
+				<span class="mui-tab-label">推荐</span>
+			</a>
+			<a class="mui-tab-item" id="find">
+				<span class="mui-icon mui-icon-paperplane"></span>
+				<span class="mui-tab-label">发现</span>
+			</a>
+			<a class="mui-tab-item" id="user">
+				<span class="mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+	</body>
+	<script type="text/javascript" charset="utf-8">
+		mui.init({
+			subpages: [ //先加载首页  
+				{
+					url: 'pages/home.html',
+					id: 'home',
+					styles: {
+						top: '0px',
+						bottom: '50px'
+					}
+				}
+
+			],
+			preloadPages: [ //缓存其他页面  
+				{
+					url: 'pages/classify.html',
+					id: 'classify',
+					styles: {
+						top: '0px',
+						bottom: '50px'
+					}
+				},
+				{
+					url: 'pages/find.html',
+					id: 'find',
+					styles: {
+						top: '0px',
+						bottom: '50px'
+					}
+				},
+				{
+					url: 'pages/user.html',
+					id: 'user',
+					styles: {
+						top: '0',
+						bottom: '50px'
+					}
+				}
+			]
+
+		});
+		var home, classify, find, user;
+		mui.plusReady(function() {
+			// 获取所有Webview窗口  
+			//var winAll = plus.webview.all(); //获取所有窗体  
+
+			mui(".mui-bar-tab").on("tap", "#home", function() { //点击触发   
+				home = plus.webview.getWebviewById("home");
+				classify = plus.webview.getWebviewById("classify");
+				find = plus.webview.getWebviewById("find");
+				user = plus.webview.getWebviewById("user");
+				home.show('fade-in', 200);
+				classify.hide(); //这一步必须有  
+				find.hide(); //这一步必须有  
+				user.hide();
+			});
+			mui(".mui-bar-tab").on("tap", "#classify", function() { //点击触发   
+				home = plus.webview.getWebviewById("home");
+				classify = plus.webview.getWebviewById("classify");
+				find = plus.webview.getWebviewById("find");
+				user = plus.webview.getWebviewById("user");
+				user.hide(); //这一步必须有  
+				home.hide(); //这一步必须有  
+				find.hide();
+				classify.show('fade-in', 200); //这一步必须有  
+			});
+			mui(".mui-bar-tab").on("tap", "#find", function() { //点击触发   
+				home = plus.webview.getWebviewById("home");
+				classify = plus.webview.getWebviewById("classify");
+				find = plus.webview.getWebviewById("find");
+				user = plus.webview.getWebviewById("user");
+				classify.hide(); //这一步必须有  
+				home.hide(); //这一步必须有  
+				user.hide();
+				find.show('fade-in', 200); //这一步必须有  
+			});
+			mui(".mui-bar-tab").on("tap", "#user", function() { //点击触发   
+				home = plus.webview.getWebviewById("home");
+				classify = plus.webview.getWebviewById("classify");
+				find = plus.webview.getWebviewById("find");
+				user = plus.webview.getWebviewById("user");
+				classify.hide(); //这一步必须有  
+				home.hide(); //这一步必须有  
+				find.hide();
+				user.show('fade-in', 200);
+			})
+		});
+	</script>
+
 </html>

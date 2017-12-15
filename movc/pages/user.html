@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/icons-extra.css" />
+	</head>
+	<style>
+		html,
+		body {
+			height: 100%;
+		}
+		
+		.mui-table-view-cell::after {
+			margin-left: -15px;
+		}
+	</style>
+
+	<body>
+		<div class="mui-content " style="height: 100%;">
+			<div id="imgback" style=" background-image: url(../images/yuantiao.jpg);background-repeat: no-repeat; display: flex;justify-content: center;align-items: center;">
+				<div style="text-align: center;margin-bottom: 10px;">
+					<img src="../images/logo.png" style="height: 54px; border-radius: 50%;margin-top: 80px;" /><br />
+					<span style="font-size: 20px;">wbi12138</span>
+				</div>
+			</div>
+			<div style="font-size: 15px;">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							&nbsp;&nbsp;&nbsp;<span class="mui-icon-extra mui-icon-extra-xiaoshuo" style="font-size: 15px;"></span> &nbsp;浏览记录
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							&nbsp;&nbsp;&nbsp;<span class="mui-icon mui-icon-star" style="font-size: 17px;"></span> &nbsp;我的收藏
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							&nbsp;&nbsp;&nbsp;<span class="mui-icon mui-icon-gear" style="font-size: 17px;"></span> &nbsp;设置
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a class="mui-navigate-right">
+							&nbsp;&nbsp;&nbsp;<span class="mui-icon mui-icon-upload" style="font-size: 15px;transform:rotate(90deg);"></span> &nbsp;退出登录
+						</a>
+					</li>
+				</ul>
+			</div>
+			</ul>
+		</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+
+			mui.plusReady(function() {
+				var height = document.documentElement.clientHeight;
+				console.log(height)
+				imgback = document.getElementById("imgback");
+				imgback.height = height * 0.37;
+			})
+		</script>
+	</body>
+
+</html>

@@ -189,5 +189,70 @@
 				}
 			}
 		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"fonts/mui-icons-extra.ttf",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/icons-extra.css",
+					"images/cbd.jpg",
+					"images/muwu.jpg",
+					"images/yuantiao.jpg",
+					"images/shuijiao.jpg",
+					"pages/classify.html",
+					"pages/home.html",
+					"pages/user.html",
+					"pages/find.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/home.html": {
+				"resources": [
+					"images/cbd.jpg",
+					"images/muwu.jpg",
+					"images/yuantiao.jpg",
+					"images/shuijiao.jpg",
+					"css/mui.min.css",
+					"images/app.ico",
+					"images/M.svg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/classify.html": {
+				"resources": [
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/user.html": {
+				"resources": [
+					"css/mui.min.css",
+					"css/icons-extra.css",
+					"images/logo.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/find.html": {
+				"resources": [
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"js/mui.js",
+				"css/mui.css"
+			]
+		}
 	}
 }
